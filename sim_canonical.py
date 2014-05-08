@@ -19,4 +19,5 @@ def stat_analyze(partlevels):
     levels, degeneracies = stat_collecting(partlevels)
     coefs = np.polyfit(levels, np.log(degeneracies), 1)
     print 'alpha = ', coefs[1], ', beta = ', coefs[0]
+    print 'average energy = ', np.mean(partlevels)
     return coefs
