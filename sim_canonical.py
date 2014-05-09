@@ -38,7 +38,12 @@ def main():
     R = int(raw_input("Number of energy levels? "))
     totalE = int(raw_input("Total energy? "))
     num_workers = int(raw_input("Number of workers? "))
-    stat_analyze(sim_particle_levels(N, R, totalE, num_workers=num_workers), toprint=True)
+    partlevels = sim_particle_levels(N, R, totalE, num_workers=num_workers)
+    levels, degeneracies = stat_collecting(partlevels)
+    print 'Energy levels:'
+    for level, degeneracy in zip(levels, degeneracies):
+        print level, ' : ', float(degeneracy) / N
+    stat_analyze(partlevels, toprint=True)
 
 if __name__ == '__main__':
     main()
