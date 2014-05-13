@@ -21,7 +21,8 @@ def raw_sim_particle_levels(N, totalE, R=float('inf')):
     partlevels = np.zeros(N)
     for i in range(totalE):
         avail_part = np.where(partlevels<(R-1))[0]
-        idx = np.random.choice(avail_part)
+        #idx = np.random.choice(avail_part)
+        idx = avail_part[np.random.randint(0, high=len(avail_part))]
         partlevels[idx] += 1
     return partlevels
 
