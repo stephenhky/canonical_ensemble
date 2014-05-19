@@ -47,6 +47,7 @@ def stat_collecting(partlevels):
     return zip(levels, degeneracies)
 
 def simulate_onethread((N, totalE, R)):
+    np.random.seed()
     return stat_collecting(raw_sim_particle_levels(N, totalE, R))
 
 class CanonicalEnsembleSimulationWrapper:
